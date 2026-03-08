@@ -132,10 +132,10 @@
         Capability to its peers only when:
       </t>
       <ol spacing="normal" type="1">
-       <li>It is capable of sending IPv6 Link-Local-only next hops for a route.</li>
-       <li>IPv6 Link-Local neighbors are associated with interfaces as part of 
-           their configuration to assist in determining the interface scope of 
-           received IPv6 Link-Local-only next hops.</li>
+        <li>It is capable of sending IPv6 Link-Local-only next hops for a route.</li>
+	<li>IPv6 Link-Local neighbors are associated with interfaces as part of
+	their configuration to assist in determining the interface scope of
+	received IPv6 Link-Local-only next hops.</li>
       </ol>
       <t>
         The presence of this capability does not affect the support of Global
