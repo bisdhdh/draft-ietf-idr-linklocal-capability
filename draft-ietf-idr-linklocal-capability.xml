@@ -323,11 +323,11 @@
 
           <ul>
             <li>
-              Link-Local IPv6 next hops MUST NOT be included. If a BGP
-			  speaker receives a link-local-only next hop over a 
-			  multihop eBGP session, it MUST handle the update using
-			  the 'treat-as-withdraw' procedure defined in
-			  <xref target="RFC7606"/>.
+              Link-Local IPv6 next hops MUST NOT be included in multihop
+			  eBGP sessions. If a BGP speaker receives a route with a
+			  link-local-only next hop over a multihop eBGP session,
+			  it MUST handle the update using the 'treat-as-withdraw'
+			  procedure defined in <xref target="RFC7606"/>.
             </li>
             <li>
               The speaker MAY be configured to propagate a Global IPv6 next hop.
@@ -387,11 +387,14 @@
         error.
       </t>
       <t>
-		In cases where a BGP session remains established but Neighbor Discovery
-		(ND) fails to resolve the link-local next hop, the implementation SHOULD
-		apply the 'treat-as-withdraw' procedure per <xref target="RFC7606"/> for
-		the affected routes until reachability is restored.
-	  </t>
+	    If the link-local next hop cannot be resolved via Neighbor Discovery,
+        the route SHOULD be considered unusable for forwarding, consistent with
+        the next-hop resolvability requirements described in <xref target="RFC4271"/>.
+        Implementations MAY handle such routes by removing them from the Loc-RIB
+        or by applying the 'treat-as-withdraw' procedure as defined in
+        <xref target="RFC7606"/>.
+      </t>
+			
     </section>
     <!-- end of Error handling section -->
 
